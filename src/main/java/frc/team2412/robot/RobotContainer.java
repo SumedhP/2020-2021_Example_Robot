@@ -1,20 +1,30 @@
 package frc.team2412.robot;
 
-import frc.team2412.robot.Subsystems.ExampleSubsystem;
+import frc.team2412.robot.Subsystems.CANSparkMaxSubsystem;
+import frc.team2412.robot.Subsystems.SolenoidSubsystem;
+import frc.team2412.robot.Subsystems.TalonSubsystem;
 
-// this is the class for containing all the subsystems and OI of the robot
+// this is the class for containing all the subsystems of the robot
 public class RobotContainer {
-	// OI
-	public OI m_OI;
 
-	// Subsystems
-	public ExampleSubsystem m_ExampleSubsystem;
+	TalonSubsystem m_talonSubsystem;
+
+	CANSparkMaxSubsystem m_CANSparkMaxSubsystem;
+
+	SolenoidSubsystem m_solenoidSubsystem;
 
 	public RobotContainer() {
-		// create and instance of example subsystem with the id from robot map
-		m_ExampleSubsystem = new ExampleSubsystem(RobotMap.exampleID);
 
-		// create an OI object
-		m_OI = new OI();
+		m_talonSubsystem = RobotMap.TalonSubsystemConnected
+				? new TalonSubsystem(RobotMap.frontMotor, RobotMap.backMotor)
+				: null;
+
+		m_CANSparkMaxSubsystem = RobotMap.CANSpakMaxSubsystemConnected ? new CANSparkMaxSubsystem(RobotMap.motor)
+				: null;
+
+		m_solenoidSubsystem = RobotMap.SolenoidSubsystemConnected
+				? new SolenoidSubsystem(RobotMap.solenoid, RobotMap.doubleSolenoid)
+				: null;
+
 	}
 }
