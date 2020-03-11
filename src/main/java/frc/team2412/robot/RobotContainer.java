@@ -1,29 +1,29 @@
 package frc.team2412.robot;
 
-import frc.team2412.robot.Subsystems.CANSparkMaxSubsystem;
-import frc.team2412.robot.Subsystems.SolenoidSubsystem;
-import frc.team2412.robot.Subsystems.TalonSubsystem;
+import frc.team2412.robot.Subsystems.IntakeSubsystem;
+import frc.team2412.robot.Subsystems.LiftSubsystem;
+import frc.team2412.robot.Subsystems.DrivebaseSubsystem;
 
 // this is the class for containing all the subsystems of the robot
 public class RobotContainer {
 
-	TalonSubsystem m_talonSubsystem;
+	DrivebaseSubsystem m_drivebaseSubsystem;
 
-	CANSparkMaxSubsystem m_CANSparkMaxSubsystem;
+	IntakeSubsystem m_intakeSubsystem;
 
-	SolenoidSubsystem m_solenoidSubsystem;
+	LiftSubsystem m_liftSubsystem;
 
 	public RobotContainer() {
 
-		m_talonSubsystem = RobotMap.TalonSubsystemConnected
-				? new TalonSubsystem(RobotMap.frontMotor, RobotMap.backMotor)
+		m_drivebaseSubsystem = RobotMap.DrivebaseConnected
+				? new DrivebaseSubsystem(RobotMap.drivebaseFrontMotor, RobotMap.drivebaseBackMotor)
 				: null;
 
-		m_CANSparkMaxSubsystem = RobotMap.CANSpakMaxSubsystemConnected ? new CANSparkMaxSubsystem(RobotMap.motor)
+		m_intakeSubsystem = RobotMap.IntakeConnected ? new IntakeSubsystem(RobotMap.intakeMotor)
 				: null;
 
-		m_solenoidSubsystem = RobotMap.SolenoidSubsystemConnected
-				? new SolenoidSubsystem(RobotMap.solenoid, RobotMap.doubleSolenoid)
+		m_liftSubsystem = RobotMap.LiftConnected
+				? new LiftSubsystem(RobotMap.liftSolenoid, RobotMap.liftDoubleSolenoid)
 				: null;
 
 	}

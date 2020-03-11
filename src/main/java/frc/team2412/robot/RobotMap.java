@@ -13,35 +13,36 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class RobotMap {
 
 	// Subsystem Cases
-	public static final boolean TalonSubsystemConnected = true;
-	public static final boolean CANSpakMaxSubsystemConnected = true;
-	public static final boolean SolenoidSubsystemConnected = true;
+	public static final boolean DrivebaseConnected = true;
+	public static final boolean IntakeConnected = true;
+	public static final boolean LiftConnected = true;
 
 	// IDs
-	public static final int FRONT_TALON_MOTOR_ID = 1;
-	public static final int BACK_TALON_MOTOR_ID = 2;
+	public static final int DRIVEBASE_FRONT_MOTOR_ID = 1;
+	public static final int DRIVEBASE_BACK_MOTOR_ID = 2;
 
-	public static final int CANSPARKMAX_ID = 3;
+	public static final int INTAKE_MOTOR_ID = 3;
 
-	public static final int SOLENOID_PORT = 1;
+	public static final int LIFT_SOLENOID_PORT = 1;
 
-	public static final int DOUBLE_SOLENOID_PORT_1 = 1;
-	public static final int DOUBLE_SOLENOID_PORT_2 = 2;
+	public static final int LIFT_DOUBLE_SOLENOID_PORT_1 = 1;
+	public static final int LIFT_DOUBLE_SOLENOID_PORT_2 = 2;
 
 	// Hardware stuff
-	public static WPI_TalonFX backMotor = TalonSubsystemConnected ? new WPI_TalonFX(BACK_TALON_MOTOR_ID) : null;
-	public static WPI_TalonSRX frontMotor = TalonSubsystemConnected ? new WPI_TalonSRX(FRONT_TALON_MOTOR_ID) : null;
-
-	public static CANSparkMax motor = CANSpakMaxSubsystemConnected
-			? new CANSparkMax(CANSPARKMAX_ID, MotorType.kBrushless)
+	public static WPI_TalonFX drivebaseBackMotor = DrivebaseConnected ? new WPI_TalonFX(DRIVEBASE_BACK_MOTOR_ID) : null;
+	public static WPI_TalonSRX drivebaseFrontMotor = DrivebaseConnected ? new WPI_TalonSRX(DRIVEBASE_FRONT_MOTOR_ID)
 			: null;
 
-	public static Solenoid solenoid = SolenoidSubsystemConnected ? new Solenoid(SOLENOID_PORT) : null;
-	public static DoubleSolenoid doubleSolenoid = SolenoidSubsystemConnected
-			? new DoubleSolenoid(DOUBLE_SOLENOID_PORT_1, DOUBLE_SOLENOID_PORT_2)
+	public static CANSparkMax intakeMotor = IntakeConnected ? new CANSparkMax(INTAKE_MOTOR_ID, MotorType.kBrushless)
+			: null;
+
+	public static Solenoid liftSolenoid = LiftConnected ? new Solenoid(LIFT_SOLENOID_PORT) : null;
+	
+	public static DoubleSolenoid liftDoubleSolenoid = LiftConnected
+			? new DoubleSolenoid(LIFT_DOUBLE_SOLENOID_PORT_1, LIFT_DOUBLE_SOLENOID_PORT_2)
 			: null;
 
 	// Robot container
-	public static RobotContainer robotContainer = new RobotContainer();
-	public static OI oi = new OI(robotContainer);
+	public static RobotContainer m_robotContainer = new RobotContainer();
+	public static OI m_oi = new OI(m_robotContainer);
 }

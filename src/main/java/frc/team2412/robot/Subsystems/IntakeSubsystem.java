@@ -1,12 +1,14 @@
 package frc.team2412.robot.Subsystems;
 
-import static frc.team2412.robot.Subsystems.constants.CANSparkMaxConstants.ticksPerRevolution;
+import static frc.team2412.robot.Subsystems.constants.IntakeConstants.ticksPerRevolution;
 
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 
-public class CANSparkMaxSubsystem {
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class IntakeSubsystem extends SubsystemBase{
 
 	private CANSparkMax m_motor;
 
@@ -14,7 +16,7 @@ public class CANSparkMaxSubsystem {
 
 	private CANPIDController m_pid;
 
-	public CANSparkMaxSubsystem(CANSparkMax motor) {
+	public IntakeSubsystem(CANSparkMax motor) {
 		m_motor = motor;
 		m_encoder = motor.getEncoder();
 		m_pid = motor.getPIDController();

@@ -2,13 +2,14 @@ package frc.team2412.robot.Subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class SolenoidSubsystem {
+public class LiftSubsystem extends SubsystemBase{
 
 	private Solenoid m_solenoid;
 	private DoubleSolenoid m_doubleSolenoid;
 
-	public SolenoidSubsystem(Solenoid solenoid, DoubleSolenoid doubleSolenoid) {
+	public LiftSubsystem(Solenoid solenoid, DoubleSolenoid doubleSolenoid) {
 		m_solenoid = solenoid;
 		m_doubleSolenoid = doubleSolenoid;
 	}
